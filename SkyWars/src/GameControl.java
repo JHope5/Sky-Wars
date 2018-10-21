@@ -46,7 +46,7 @@ public class GameControl {
 		if (!this.gameOver) {
 			// Increment turn counter
 			this.moveCount++;
-			// Deep copy and push current swampState into undo stack
+			// Deep copy and push current state into undo stack
 			GameState gameCopy = (GameState) GameSerializer.copy(this.currentState);
 			this.undoMove.push(gameCopy);
 			// Clearing invoker of all commands
@@ -153,7 +153,7 @@ public class GameControl {
 					// Removing the enemy from the game
 					this.currentState.removeEnemyShip((EnemyShip) enemies.get(0));
 
-					// If the conflict involves 2 enemy ships
+				// If the conflict involves 2 enemy ships
 				} else if (enemies.size() == 2) {
 					// Getting the current combat mode
 					CombatMode combatMode = this.currentState.getPlayer().getCombatMode();
